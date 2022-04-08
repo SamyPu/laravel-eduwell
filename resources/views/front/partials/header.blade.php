@@ -18,7 +18,7 @@
                         <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
                         @if (Route::has('login'))
                             @auth
-                                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                                <li><a href="{{ url('/admin') }}">Dashboard</a></li>
                             @else
                                 <li><a href="{{ route('login') }}">Log in</a></li>
                                 @if (Route::has('register'))
