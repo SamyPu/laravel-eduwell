@@ -29,7 +29,7 @@ Route::get('/', function () {
     }
     
     return view('welcome', compact('titres', 'testimonials', 'services'));
-});
+})->name("template");
 
 Route::get('/dashboard', function () {
     return view('dashboard');

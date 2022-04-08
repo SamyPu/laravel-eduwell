@@ -63,6 +63,22 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-title">
+                    <a href="{{ route("template") }}">Exit</a>
+                </li>
+
+                <li class="sidebar-title">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <div :href="route('logout')"
+                            style="cursor: pointer"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                    </form>
+                </li>
+
             </ul>  {{-- anchor_navbar --}}
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
