@@ -63,6 +63,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs("banner.index") ? "active" : "" }}">
+                    <a href="{{ route("banner.index") }}" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Banner</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-title">
                     <a href="{{ route("template") }}">Exit</a>
@@ -78,7 +84,6 @@
                             {{ __('Log Out') }}
                     </form>
                 </li>
-
             </ul>  {{-- anchor_navbar --}}
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

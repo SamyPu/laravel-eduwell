@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 			TitreSeeder::class,
 			TestimonialSeeder::class,
 			ServiceSeeder::class,
+			BannerSeeder::class,
 		]);
     }
 }
