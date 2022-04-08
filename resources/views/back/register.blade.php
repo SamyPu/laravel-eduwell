@@ -1,51 +1,99 @@
 {{-- il faut changer la route dans la partie create du RegisteredUserController  (auth.register en back.register) --}}
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="POST" action="{{ route('register') }}">
-    @csrf
-    <div class="mt-6">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" class="w-full mt-1 py-1 px-3 rounded border border-gray-200"
-               value="{{ old('name') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraPlop</title>
 
-        @error('name')
-            <span class="text-red-500 text-xs italic" role="alert">
-                {{ $message }}
-            </span>
-        @enderror
-    </div>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
-    <div class="mt-6">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="w-full mt-1 py-1 px-3 rounded border border-gray-200"
-               value="{{ old('email') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/iconly/bold.css') }}">
 
-        @error('email')
-            <span class="text-red-500 text-xs italic" role="alert">
-                {{ $message }}
-            </span>
-        @enderror
-    </div>
+    <link rel="stylesheet" href="{{ asset('vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/back-app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.svg') }}" type="image/x-icon">
 
-    <div class="mt-4">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"
-               class="w-full mt-1 py-1 px-3 rounded border border-gray-200">
+    {{-- css pour le login --}}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
-        @error('password')
-            <span class="text-red-500 text-xs italic" role="alert">
-                {{ $message }}
-            </span>
-        @enderror
-    </div>
+</head>
+//create an input that take the adress that is put in it and display a map
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-light text-dark" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <form method="POST" action="{{ route('register') }}">
+                                @csrf
+                                <div class="mb-md-2 mt-md-4 pb-5">
+                                    <div class="col-sm-12">
+                                        <h2 class="fw-bold mb-2 text-uppercase text-dark">Register</h2>
+                                        <div class="form-outline form-white mb-4 form-floating">
+                                            <input type="name" id="name" class="form-control form-control-lg "
+                                                placeholder="name *" name="name" value="{{ old('name') }}"
+                                                autocomplete="name">
+                                            <label for="form-label text-dark">Name</label>
 
-    <div class="mt-4">
-        <label for="password_confirmation">Confirm Password</label>
-        <input type="password" id="password_confirmation" name="password_confirmation"
-               class="w-full mt-1 py-1 px-3 rounded border border-gray-200">
-    </div>
+                                        </div>
 
-    <div class="flex justify-between items-center mt-6">
-        <button type="submit" class="bg-blue-500 py-2 px-3 text-white rounded-lg hover:bg-blue-600">Register</button>
-        <a href="/" class="bg-blue-500 py-2 px-3 text-white rounded-lg">Cancel</a>
-    </div>
-</form>
+
+                                        <div class="form-outline form-white mb-4 form-floating">
+                                            <input type="email" id="email" class="form-control form-control-lg "
+                                                placeholder="email Address *" name="email" value="{{ old('email') }}"
+                                                autocomplete="email">
+                                            <label for="form-label text-dark">Email</label>
+
+                                        </div>
+
+
+                                        <div class="form-outline form-white mb-4 form-floating">
+                                            <input type="password" id="password" class="form-control form-control-lg "
+                                                placeholder="password *" name="password"
+                                                value="{{ old('password') }}" autocomplete="password">
+                                            <label for="form-label text-dark">Password</label>
+
+                                        </div>
+
+
+
+                                        <div class="form-outline form-white mb-4 form-floating">
+                                            <input type="password" id="password_confirmation"
+                                                class="form-control form-control-lg "
+                                                placeholder="password_confirmation *" name="password_confirmation"
+                                                value="{{ old('password_confirmation') }}"
+                                                autocomplete="password_confirmation">
+                                            <label for="form-label text-dark">Confirm password</label>
+
+                                        </div>
+
+
+                                        <div class="flex justify-between items-center mt-6">
+                                            <button type="submit"
+                                                class="btn button-gradient btn-lg px-5 mt-5"><span
+                                                    class="me-1"><i class="fas fa-user-plus"></i></span>
+                                                Register</button>
+                                            <a href="/" class="btn btn-light btn-lg px-5 mt-5">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+</body>
+
+</html>
