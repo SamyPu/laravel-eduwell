@@ -37,12 +37,15 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
+//pour changer le chemain du login, aller dans le fichier app/provider/RouteServiceProvider.php et changer la public const HOME = '/dashboard'; en public const HOME = '/chemain de la page';
 Route::get("/admin", function () {
 	return view("back.admin");
-})->name("back.index");
+})->middleware(['auth'])->name("back.index");
 
 Route::get('/back/titres', [TitreController::class, 'index'])->name('titre.index');
 Route::get('/back/titres/{id}/edit', [TitreController::class, 'edit'])->name('titre.edit');
 Route::post('/back/titres/{id}/update', [TitreController::class, 'update'])->name('titre.update');
 Route::resource('/back/testimonial', TestimonialController::class);
 Route::resource('/back/service', ServiceController::class);
+
