@@ -12,7 +12,7 @@
                 <p>Kogi VHS freegan bicycle rights try-hard green juice probably haven't heard of them cliche la croix
                     af chillwave.</p>
                 <div class="white-button">
-                    <a href="contact-us.html">View Courses</a>
+                    <a href="#">View Courses</a>
                 </div>
             </div>
         </div>

@@ -37,8 +37,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-heading">
-                                <h6>Contact us</h6>
-                                <h4>Say <em>Hello</em></h4>
+                                <h6>{{ $titres[3]->nom }}</h6>
+                                <h4>{!! $titres[3]->description !!}</h4>
                                 <p>IF you need a working contact form by PHP script, please visit TemplateMo's contact
                                     page for more info.</p>
                             </div>

@@ -1,9 +1,10 @@
 <div id="sidebar" class="active">
-    <div class="sidebar-wrapper active">
+    {{-- background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%) !important; --}}
+    <div class="sidebar-wrapper active" style="background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%) !important">
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="{{ route("back.index") }}">Relations-Exercice-3</a>
+                    <a href="{{ route("back.index") }}" style="color: white">Laravel Eduwell</a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -23,6 +24,45 @@
 
                 <li class="sidebar-title">Page</li>
 
+                <li class="sidebar-item  {{-- has-sub --}} {{ request()->routeIs("titre.index") ? "active" : "" }}">
+                    <a href="{{ route("titre.index") }}" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Titre</span>
+                    </a>
+                    {{-- <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("titre.index") }}">All Titre</a>
+                        </li>
+                    </ul> --}}
+                </li>
+                <li class="sidebar-item  has-sub {{ request()->routeIs("service.index")||request()->routeIs("service.create") ? "active" : "" }}">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Service</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("service.create") }}">Create Service</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route("service.index") }}">All Service</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub {{ request()->routeIs("testimonial.index")||request()->routeIs("testimonial.create") ? "active" : "" }}">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Testimonial</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("testimonial.create") }}">Create Testimonial</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route("testimonial.index") }}">All Testimonial</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>  {{-- anchor_navbar --}}
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
