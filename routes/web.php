@@ -10,6 +10,8 @@ use App\Http\Controllers\BannerController;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Route;
 
+use Cornford\Googlmapper\Facades\MapperFacade;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,16 @@ Route::get('/', function () {
         $banner->soustitre = str_replace("(","<em>", $banner->soustitre);
         $banner->soustitre = str_replace(")","</em>", $banner->soustitre);
     }
+    MapperFacade::map(
+            65.01,
+            25.01,
+                [
+                    'zoom' => 10,
+                    'markers' => [
+                        ['title' => 'My Marker', 'animation' => 'DROP'],
+                    ],
+                ]
+                );
     
     return view('welcome', compact('titres', 'testimonials', 'services','banners'));
 })->name("template");
