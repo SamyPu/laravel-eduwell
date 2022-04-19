@@ -70,6 +70,18 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ request()->routeIs("map.index") ? "active" : "" }}">
+                    <a href="{{ route("map.index") }}" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Map</span>
+                    </a>
+                    {{-- <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("map.index") }}">All Map</a>
+                        </li>
+                    </ul> --}}
+                </li>
+
                 <li class="sidebar-title">
                     <a href="{{ route("template") }}">Exit</a>
                 </li>

@@ -7,6 +7,7 @@ use App\Models\Testimonial;
 use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
 
 use Cornford\Googlmapper\Facades\MapperFacade;
@@ -67,3 +68,6 @@ Route::resource('/back/service', ServiceController::class);
 Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index');
 Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
 Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update');
+Route::get('/back/maps', [MapController::class, 'index'])->name('map.index');
+Route::get('/back/maps/{id}/edit', [MapController::class, 'edit'])->name('map.edit');
+Route::post('/back/maps/{id}/update', [MapController::class, 'update'])->name('map.update');
