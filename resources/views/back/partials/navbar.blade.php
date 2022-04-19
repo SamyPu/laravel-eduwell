@@ -21,6 +21,18 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs("user.index") ? "active" : "" }}">
+                    <a href="{{ route("user.index") }}" class="sidebar-link">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs("role.index") ? "active" : "" }}">
+                    <a href="{{ route("role.index") }}" class="sidebar-link">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Roles</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-title">Page</li>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TitreController;
+use App\Http\Controllers\RoleController;
 use App\Models\Titre;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
@@ -8,8 +9,10 @@ use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\UserController;
 use App\Models\Banner;
 use App\Models\Map;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 use Cornford\Googlmapper\Facades\MapperFacade;
@@ -51,7 +54,8 @@ require __DIR__.'/auth.php';
 
 //pour changer le chemain du login, aller dans le fichier app/provider/RouteServiceProvider.php et changer la public const HOME = '/dashboard'; en public const HOME = '/chemain de la page';
 Route::get("/admin", function () {
-	return view("back.admin");
+    $users = User::all();
+	return view("back.admin", compact('users'));
 })->middleware(['auth'])->name("back.index");
 
 Route::get('/back/titres', [TitreController::class, 'index'])->name('titre.index');
@@ -69,3 +73,19 @@ Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->n
 Route::get('/back/maps', [MapController::class, 'index'])->name('map.index');
 Route::get('/back/maps/{id}/edit', [MapController::class, 'edit'])->name('map.edit');
 Route::post('/back/maps/{id}/update', [MapController::class, 'update'])->name('map.update');
+
+Route::get('/back/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/back/users/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/back/users/store', [UserController::class, 'store'])->name('user.store');
+Route::get('/back/users/{id}/read', [UserController::class, 'read'])->name('user.read');
+Route::get('/back/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/back/users/{id}/update', [UserController::class, 'update'])->name('user.update');
+Route::post('/back/users/{id}/delete', [UserController::class, 'destroy'])->name('user.destroy');
+// Role
+Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index');
+Route::get('/back/roles/create', [RoleController::class, 'create'])->name('role.create');
+Route::post('/back/roles/store', [RoleController::class, 'store'])->name('role.store');
+Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read');
+Route::get('/back/roles/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+Route::post('/back/roles/{id}/update', [RoleController::class, 'update'])->name('role.update');
+Route::post('/back/roles/{id}/delete', [RoleController::class, 'destroy'])->name('role.destroy');
