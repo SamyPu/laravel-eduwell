@@ -5,13 +5,19 @@
                 <div id="map">
 
                     <!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
-                    <iframe
+                    {{-- <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7151.84524236698!2d-122.19494600413192!3d47.56605883252286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490695e625f8965%3A0xf99b055e76477def!2sNewcastle%20Beach%20Park%20Playground%2C%20Bellevue%2C%20WA%2098006%2C%20USA!5e0!3m2!1sen!2sth!4v1644335269264!5m2!1sen!2sth"
                         width="100%" height="420px" frameborder="0"
                         style="border:0; border-radius: 15px; position: relative; z-index: 2;"
-                        allowfullscreen=""></iframe>
-                   
-                    {{-- <iframe width="976" height="531" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=976&height=531&hl=en&q=Place%20de%20la%20minoterie%20Bruxelles+(Travail)&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe> <a href="https://maps-generator.com/fr">Information</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d380bc8744fa325025349a22261cffaa1c323a8a'></script>  --}}
+                        allowfullscreen=""></iframe> --}}
+                    
+                        <iframe width="100%" height="420" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;"></iframe>
+                            
+                        
+                    
+                    {{-- <iframe width="976" height="531" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=976&height=531&hl=en&q=Place%20de%20la%20minoterie%20Bruxelles+(Travail)&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe> <a href="https://maps-generator.com/fr">Information</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d380bc8744fa325025349a22261cffaa1c323a8a'></script> --}}
                     <div class="row">
                         <div class="col-lg-4 offset-lg-1">
                             <div class="contact-info">
