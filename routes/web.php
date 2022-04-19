@@ -35,16 +35,18 @@ Route::get('/', function () {
         $banner->soustitre = str_replace("(","<em>", $banner->soustitre);
         $banner->soustitre = str_replace(")","</em>", $banner->soustitre);
     }
-    MapperFacade::map(
-            65.01,
-            25.01,
-                [
-                    'zoom' => 10,
-                    'markers' => [
-                        ['title' => 'My Marker', 'animation' => 'DROP'],
-                    ],
-                ]
-                );
+    // MapperFacade::map(
+    //         50.8333,
+    //         4.35,
+    //             [
+    //                 'zoom' => 10,
+    //                 'markers' => [
+    //                     ['title' => 'My Marker', 'animation' => 'DROP'],
+    //                 ],
+    //             ]
+    //             );
+
+    // MapperFacade::location('Sheffield');
     
     return view('welcome', compact('titres', 'testimonials', 'services','banners'));
 })->name("template");
