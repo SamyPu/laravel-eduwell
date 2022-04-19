@@ -39,8 +39,9 @@ class ServiceController extends Controller
     }
     public function edit($id)
     {
+        $services = Service::all();
         $service = Service::find($id);
-        return view("/back/services/edit",compact("service"));
+        return view("/back/services/edit",compact("service", "services"));
     }
     public function update($id, Request $request)
     {

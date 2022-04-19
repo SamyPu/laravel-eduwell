@@ -30,7 +30,7 @@
                 @foreach ($services as $service)
                     <tr>
                         <td scope='row'>{{ $service->id }}</td>
-						<td><img src="{{ asset($service->icone) }}" style="width: 50px" alt=""></td>
+						<td><img src="{{ "/images/" . $service->icone  }}" style="width: 50px" alt=""></td>
 						<td>{{ $service->nom }}</td>
 						<td>{{ $service->description }}</td>
                         <td> {{-- all_td_anchor --}}
