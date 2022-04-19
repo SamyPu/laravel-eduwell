@@ -7,6 +7,7 @@ use App\Models\Testimonial;
 use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use App\Http\Controllers\BannerController;
+use App\Models\Banner;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +25,16 @@ Route::get('/', function () {
     $titres = Titre::all();
     $testimonials = Testimonial::all();
     $services = Service::all();
+    $banners = Banner::all();
     foreach ($titres as $titre) {
         $titre->description = str_replace("(","<em>", $titre->description);
         $titre->description = str_replace(")","</em>", $titre->description);
+    }foreach ($banners as $banner) {
+        $banner->soustitre = str_replace("(","<em>", $banner->soustitre);
+        $banner->soustitre = str_replace(")","</em>", $banner->soustitre);
     }
     
-    return view('welcome', compact('titres', 'testimonials', 'services'));
+    return view('welcome', compact('titres', 'testimonials', 'services','banners'));
 })->name("template");
 
 Route::get('/dashboard', function () {

@@ -4,16 +4,16 @@
         <div class="row">
             <div class="col-lg-6 align-self-center">
                 <div class="header-text">
-                    <h6>Welcome to our school</h6>
-                    <h2>Best Place To Learn Graphic <em>Design!</em></h2>
+                    <h6>{{ $banners[0]->titre }}</h6>
+                    <h2>{!! $banners[0]->soustitre !!}</h2>
                     <div class="main-button-gradient">
-                        <div class="scroll-to-section"><a href="#contact-section">Join Us Now!</a></div>
+                        <div class="scroll-to-section"><a href="#contact-section">{{ $banners[0]->button }}</a></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="right-image">
-                    <img src="{{ asset('images/banner-right-image.png') }}" alt="">
+                    <img src="{{ $banners[0]->image}}" alt="">
                 </div>
             </div>
         </div>
