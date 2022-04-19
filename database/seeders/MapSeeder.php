@@ -17,7 +17,7 @@ class MapSeeder extends Seeder
     {
         //
 		DB::table("maps")->insert([
-			'nom' => '',
+			'nom' => 'Place de la minoterie',
 		]);
     }
 }

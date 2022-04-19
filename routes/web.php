@@ -8,6 +8,8 @@ use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\MapController;
+use App\Models\Banner;
+use App\Models\Map;
 use Illuminate\Support\Facades\Route;
 
 use Cornford\Googlmapper\Facades\MapperFacade;
@@ -27,24 +29,17 @@ Route::get('/', function () {
     $titres = Titre::all();
     $testimonials = Testimonial::all();
     $services = Service::all();
+    $banners = Banner::all();
+    $maps = Map::all();
     foreach ($titres as $titre) {
         $titre->description = str_replace("(","<em>", $titre->description);
         $titre->description = str_replace(")","</em>", $titre->description);
+    }foreach ($banners as $banner) {
+        $banner->soustitre = str_replace("(","<em>", $banner->soustitre);
+        $banner->soustitre = str_replace(")","</em>", $banner->soustitre);
     }
-    // MapperFacade::map(
-    //         50.8333,
-    //         4.35,
-    //             [
-    //                 'zoom' => 10,
-    //                 'markers' => [
-    //                     ['title' => 'My Marker', 'animation' => 'DROP'],
-    //                 ],
-    //             ]
-    //             );
-
-    // MapperFacade::location('Sheffield');
     
-    return view('welcome', compact('titres', 'testimonials', 'services'));
+    return view('welcome', compact('titres', 'testimonials', 'services','banners','maps'));
 })->name("template");
 
 Route::get('/dashboard', function () {
@@ -62,12 +57,15 @@ Route::get("/admin", function () {
 Route::get('/back/titres', [TitreController::class, 'index'])->name('titre.index');
 Route::get('/back/titres/{id}/edit', [TitreController::class, 'edit'])->name('titre.edit');
 Route::post('/back/titres/{id}/update', [TitreController::class, 'update'])->name('titre.update');
+
 Route::resource('/back/testimonial', TestimonialController::class);
+
 Route::resource('/back/service', ServiceController::class);
 
 Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index');
 Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
 Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update');
+
 Route::get('/back/maps', [MapController::class, 'index'])->name('map.index');
 Route::get('/back/maps/{id}/edit', [MapController::class, 'edit'])->name('map.edit');
 Route::post('/back/maps/{id}/update', [MapController::class, 'update'])->name('map.update');

@@ -15,12 +15,12 @@ class BannerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
 		DB::table("banners")->insert([
-			'titre' => '',
-			'soustitre' => '',
-			'button' => '',
-			'image' => '',
+			'titre' => 'Welcome to our school',
+			'soustitre' => 'Best Place To Learn Graphic (Design!)',
+			'button' => 'Join Us Now!',
+			'image' => 'images/banner-right-image.png',
 		]);
     }
 }
