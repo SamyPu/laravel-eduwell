@@ -30,16 +30,18 @@ Route::get('/', function () {
         $titre->description = str_replace("(","<em>", $titre->description);
         $titre->description = str_replace(")","</em>", $titre->description);
     }
-    MapperFacade::map(
-            65.01,
-            25.01,
-                [
-                    'zoom' => 10,
-                    'markers' => [
-                        ['title' => 'My Marker', 'animation' => 'DROP'],
-                    ],
-                ]
-                );
+    // MapperFacade::map(
+    //         50.8333,
+    //         4.35,
+    //             [
+    //                 'zoom' => 10,
+    //                 'markers' => [
+    //                     ['title' => 'My Marker', 'animation' => 'DROP'],
+    //                 ],
+    //             ]
+    //             );
+
+    // MapperFacade::location('Sheffield');
     
     return view('welcome', compact('titres', 'testimonials', 'services'));
 })->name("template");
