@@ -14,7 +14,7 @@
                         <iframe width="100%" height="420" id="gmap_canvas"
                                 src="https://maps.google.com/maps?q={{ $maps[0]->nom }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;"></iframe>
-                            
+                            c
                         
                     
                     {{-- <iframe width="976" height="531" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=976&height=531&hl=en&q=Place%20de%20la%20minoterie%20Bruxelles+(Travail)&t=&z=16&ie=UTF8&iwloc=B&output=embed"></iframe> <a href="https://maps-generator.com/fr">Information</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=d380bc8744fa325025349a22261cffaa1c323a8a'></script> --}}
