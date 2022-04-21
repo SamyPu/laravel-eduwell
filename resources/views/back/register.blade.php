@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 </head>
-//create an input that take the adress that is put in it and display a map
 <body>
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">

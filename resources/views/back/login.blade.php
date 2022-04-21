@@ -43,7 +43,8 @@
                                                     class="form-control form-control-lg @error('email') is-invalid @enderror"
                                                     placeholder="Email Address *" name="email"
                                                     value="{{ old('email') }}" autocomplete="email">
-                                                <label for="email" class="form-label text-dark">{{ __('Email') }}</label>
+                                                <label for="email"
+                                                    class="form-label text-dark">{{ __('Email') }}</label>
 
                                                 @error('email')
                                                     <span class="invalid-feedback d-block mt-2 text-danger rounded"
@@ -58,7 +59,8 @@
                                                     class="form-control form-control-lg @error('password') is-invalid @enderror"
                                                     placeholder="Password *" name="password"
                                                     autocomplete="new-password">
-                                                <label for="password" class="form-label text-dark">{{ __('Password') }}</label>
+                                                <label for="password"
+                                                    class="form-label text-dark">{{ __('Password') }}</label>
                                                 @error('password')
                                                     <span class="invalid-feedback d-block mt-2 text-danger rounded"
                                                         role="alert">
@@ -68,22 +70,26 @@
                                                 @enderror
                                             </div>
                                             <div class="d-flex">
-                                            <div class="block mx-auto">
-                                                <label for="remember_me" class="inline-flex items-center">
-                                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                                                    <span class="ml-2 text-sm text-dark">{{ __('Remember me') }}</span>
-                                                </label>
+                                                <div class="block mx-auto">
+                                                    <label for="remember_me" class="inline-flex items-center">
+                                                        <input id="remember_me" type="checkbox"
+                                                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                                            name="remember">
+                                                        <span
+                                                            class="ml-2 text-sm text-dark">{{ __('Remember me') }}</span>
+                                                    </label>
+                                                </div>
+                                                <p class="small mx-auto pb-lg-2"><a
+                                                        href="{{ url('forgot-password') }}"
+                                                        class="text-gray-600">{{ __('Forgot your password?') }}</a>
+                                                </p>
                                             </div>
-                                            <p class="small mx-auto pb-lg-2"><a
-                                                    href="{{ url('forgot-password') }}"
-                                                    class="text-gray-600">{{ __('Forgot your password?') }}</a>
-                                            </p>
+                                            <div class="flex justify-between items-center mt-6">
+                                                <button type="submit" class="btn button-gradient btn-lg px-5 mt-5"><span
+                                                        class="me-1"><i class="fas fa-user-plus"></i></span>
+                                                    {{ __('Log in') }}</button>
+                                                <a href="/" class="btn btn-light btn-lg px-5 mt-5">Cancel</a>
                                             </div>
-                                            <button type="submit"
-                                                class="btn button-gradient btn-lg px-5 mt-5"><span
-                                                    class="me-1"><i class="fas fa-user-plus"></i></span>
-                                                {{ __('Log in') }}</button>
-
                                         </div>
                                     </div>
                                 </fieldset>

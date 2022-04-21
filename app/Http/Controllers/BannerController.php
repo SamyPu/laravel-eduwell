@@ -29,12 +29,11 @@ class BannerController extends Controller
             'titre'=> 'required',
             'soustitre'=> 'required',
             'button'=> 'required',
-            'image'=> 'required',
         ]); // update_validated_anchor;
         $banner->titre = $request->titre;
         $banner->soustitre = $request->soustitre;
         $banner->button = $request->button;
-        $banner->image = $request->image;
+        $banner->image = 'images/' . $request->file('image')->hashName();
         $banner->save(); // update_anchor
         return redirect()->route("banner.index")->with("message", "Banner has been updated !");
     }
