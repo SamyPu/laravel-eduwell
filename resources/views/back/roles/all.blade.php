@@ -1,7 +1,7 @@
 @extends('back.layouts.app')
 @section('content')
     <div class='container'>
-        <h1 class='my-5'>Services</h1>
+        <h1 class='my-5'>Roles</h1>
         @if (session()->has('message'))
             <div class='alert alert-success'>
                 {{ session()->get('message') }}
@@ -16,32 +16,28 @@
                 </ul>
             </div>
         @endif
+        <a class='btn btn-success' href='{{ route('role.create') }}' role='button'>Create</a>
         <table class='table'>
             <thead>
                 <tr>
                     <th scope='col'>#</th>
-					<th scope='col'>Icone</th>
-					<th scope='col'>Nom</th>
-					<th scope='col'>Description</th>
-                    <th scope='col'>Action</th> {{-- all_tr_anchor --}}
-                </tr>
+                    <th scope='col'>Action</th>
+                    <th scope='col'>role</th>
+                </tr> {{-- all_tr_anchor --}}
             </thead>
             <tbody>
-                @foreach ($services as $service)
+                @foreach ($roles as $role)
                     <tr>
-                        <td scope='row'>{{ $service->id }}</td>
-						<td><img src="{{ "/images/" . $service->icone  }}" style="width: 50px" alt=""></td>
-						<td>{{ $service->nom }}</td>
-						<td>{{ $service->description }}</td>
+                        <th scope='row'>{{ $role->id }}</th>
+                        <td>{{ $role->role }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
-                                <form action='{{ route('service.destroy', $service->id) }}' method='post'>
+                                <form action='{{ route('role.destroy', $role->id) }}' method='post'>
                                     @csrf
-                                    @method('delete')
-                                    <button class='btn btn-danger mx-1' type=submit>Delete</button>
+                                    <button class=btn btn-danger type=submit>Delete</button>
                                 </form>
-                                <a class='btn btn-primary mx-1' href='{{ route('service.edit', $service->id) }}' role='button'>Edit</a>
-                                <a class='btn btn-primary mx-1' href='{{ route('service.show', $service->id) }}' role='button'>Read</a>
+                                <a class='btn btn-primary' href='{{ route('role.edit', $role->id) }}' role='button'>Edit</a>
+                                <a class='btn btn-primary' href='{{ route('role.read', $role->id) }}' role='button'>Read</a>
                             </div>
                         </td>
                     </tr>
