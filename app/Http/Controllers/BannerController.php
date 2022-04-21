@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class BannerController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('role');
+    }
     public function index()
     {
         $banners = Banner::all();
@@ -32,6 +36,6 @@ class BannerController extends Controller
         $banner->button = $request->button;
         $banner->image = $request->image;
         $banner->save(); // update_anchor
-        return redirect()->route("banner.index")->with("message", "Successful update !");
+        return redirect()->route("banner.index")->with("message", "Banner has been updated !");
     }
 }

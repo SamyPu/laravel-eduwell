@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class TestimonialController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('role');
+    }
     public function index()
     {
         $testimonials = Testimonial::all();

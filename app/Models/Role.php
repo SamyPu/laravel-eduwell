@@ -14,7 +14,8 @@ class Role extends Model
     ]; // model_anchor
      
     protected $table = 'roles';
-    function user()
+
+    function users()
     {
         return $this->hasMany(User::class);
     }
