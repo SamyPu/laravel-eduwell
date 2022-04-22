@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
             'role' => 'admin',
         ]);
         DB::table('roles')->insert([
-            'role' => 'Backend Master',
+            'role' => 'WebMaster',
         ]);
         DB::table('roles')->insert([
             'role' => 'GoogleSearch Master',
