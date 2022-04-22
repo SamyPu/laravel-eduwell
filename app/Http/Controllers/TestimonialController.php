@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 class TestimonialController extends Controller
 {
     //
-    public function __construct()
-    {
-        //$this->middleware('role');
-        $this->middleware('admin');
-        $this->middleware('webmaster');
-    }
+    // public function __construct()
+    // {
+    //     //$this->middleware('role');
+    //     $this->middleware('admin');
+    //     $this->middleware('webmaster');
+    // }
     public function index()
     {
         $testimonials = Testimonial::all();

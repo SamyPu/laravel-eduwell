@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class TitreController extends Controller
 {
     //
-    public function __construct()
-    {
-        //$this->middleware('role');
-        $this->middleware('admin');
-    }
+    // public function __construct()
+    // {
+    //     //$this->middleware('role');
+    //     $this->middleware('admin');
+    // }
     public function index()
     {
         $titres = Titre::all();

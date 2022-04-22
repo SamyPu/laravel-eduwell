@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class BannerController extends Controller
 {
     //
-    public function __construct()
-    {
-        //$this->middleware('role');
-        $this->middleware('admin');
-    }
+    // public function __construct()
+    // {
+    //     //$this->middleware('role');
+    //     $this->middleware('admin');
+    // }
     public function index()
     {
         $banners = Banner::all();

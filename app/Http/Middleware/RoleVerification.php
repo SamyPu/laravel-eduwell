@@ -22,5 +22,6 @@ class RoleVerification
         } else {
             return redirect()->back();
         }
+        //
     }
 }
