@@ -10,7 +10,8 @@ class TitreController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('role');
+        //$this->middleware('role');
+        $this->middleware('admin');
     }
     public function index()
     {
