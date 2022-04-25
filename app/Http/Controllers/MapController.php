@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 class MapController extends Controller
 {
     //
-    public function __construct()
-    {
-        // $this->middleware('role');
-        $this->middleware('admin');
-        $this->middleware('webmaster');
-    }
+    // public function __construct()
+    // {
+    //     // $this->middleware('role');
+    //     $this->middleware('admin');
+    //     $this->middleware('webmaster');
+    // }
     public function index()
     {
         $maps = Map::all();
