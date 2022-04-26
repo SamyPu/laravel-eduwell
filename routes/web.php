@@ -77,7 +77,7 @@ Route::post('/back/maps/{id}/update', [MapController::class, 'update'])->name('m
 Route::get('/back/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/back/users/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/back/users/store', [UserController::class, 'store'])->name('user.store');
-Route::get('/back/users/{id}/read', [UserController::class, 'read'])->name('user.read');
+Route::get('/back/users/{id}/show', [UserController::class, 'show'])->name('user.show');
 Route::get('/back/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/back/users/{id}/update', [UserController::class, 'update'])->name('user.update');
 Route::post('/back/users/{id}/delete', [UserController::class, 'destroy'])->name('user.destroy');
@@ -85,7 +85,7 @@ Route::post('/back/users/{id}/delete', [UserController::class, 'destroy'])->name
 Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index');
 Route::get('/back/roles/create', [RoleController::class, 'create'])->name('role.create');
 Route::post('/back/roles/store', [RoleController::class, 'store'])->name('role.store');
-Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read');
+Route::get('/back/roles/{id}/show', [RoleController::class, 'show'])->name('role.show');
 Route::get('/back/roles/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
 Route::post('/back/roles/{id}/update', [RoleController::class, 'update'])->name('role.update');
 Route::post('/back/roles/{id}/delete', [RoleController::class, 'destroy'])->name('role.destroy');

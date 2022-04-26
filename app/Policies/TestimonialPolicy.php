@@ -65,7 +65,12 @@ class TestimonialPolicy
      */
     public function delete(User $user, Testimonial $testimonial)
     {
-        return $user->role_id == 1;
+        if ($user->id == $testimonial->user_id) {
+            return true;
+        } else {
+            return false;
+        }
+        // return $user->role_id == 1;
     }
 
     /**

@@ -18,6 +18,7 @@ return new class extends Migration
 			$table->string('nom');
 			$table->string('poste');
 			$table->string('quote');
+            $table->foreignId('user_id')->constrained('users','id');
             $table->timestamps();
         });
     }
