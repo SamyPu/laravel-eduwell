@@ -16,4 +16,9 @@ class Testimonial extends Model
 	]; // model_anchor
 
 	protected $table = "testimonials";
+
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
 }

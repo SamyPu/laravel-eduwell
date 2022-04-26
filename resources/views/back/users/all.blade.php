@@ -44,7 +44,7 @@
                                     <button class=btn btn-danger type=submit>Delete</button>
                                 </form>
                                 <a class='btn btn-primary' href='{{ route('user.edit', $user->id) }}' user='button'>Edit</a>
-                                <a class='btn btn-primary' href='{{ route('user.read', $user->id) }}' user='button'>Read</a>
+                                <a class='btn btn-primary' href='{{ route('user.show', $user->id) }}' user='button'>Read</a>
                             </div>
                         </td>
                     </tr>
