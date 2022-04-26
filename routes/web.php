@@ -58,34 +58,34 @@ Route::get("/admin", function () {
 	return view("back.admin", compact('users'));
 })->middleware(['auth'])->name("back.index");
 
-Route::get('/back/titres', [TitreController::class, 'index'])->name('titre.index')->middleware('admin');
-Route::get('/back/titres/{id}/edit', [TitreController::class, 'edit'])->name('titre.edit')->middleware('admin');
-Route::post('/back/titres/{id}/update', [TitreController::class, 'update'])->name('titre.update')->middleware('admin');
+Route::get('/back/titres', [TitreController::class, 'index'])->name('titre.index');
+Route::get('/back/titres/{id}/edit', [TitreController::class, 'edit'])->name('titre.edit');
+Route::post('/back/titres/{id}/update', [TitreController::class, 'update'])->name('titre.update');
 
-Route::resource('/back/testimonial', TestimonialController::class)->middleware(['admin', 'webmaster']);
+Route::resource('/back/testimonial', TestimonialController::class);
 
-Route::resource('/back/service', ServiceController::class)->middleware('admin');
+Route::resource('/back/service', ServiceController::class);
 
-Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index')->middleware('admin');
-Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit')->middleware('admin');
-Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update')->middleware('admin');
+Route::get('/back/banners', [BannerController::class, 'index'])->name('banner.index');
+Route::get('/back/banners/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
+Route::post('/back/banners/{id}/update', [BannerController::class, 'update'])->name('banner.update');
 
 Route::get('/back/maps', [MapController::class, 'index'])->name('map.index')->middleware(['admin', 'webmaster']);
 Route::get('/back/maps/{id}/edit', [MapController::class, 'edit'])->name('map.edit')->middleware(['admin', 'webmaster']);
 Route::post('/back/maps/{id}/update', [MapController::class, 'update'])->name('map.update')->middleware(['admin', 'webmaster']);
 
-Route::get('/back/users', [UserController::class, 'index'])->name('user.index')->middleware('admin');
-Route::get('/back/users/create', [UserController::class, 'create'])->name('user.create')->middleware('admin');
-Route::post('/back/users/store', [UserController::class, 'store'])->name('user.store')->middleware('admin');
-Route::get('/back/users/{id}/read', [UserController::class, 'read'])->name('user.read')->middleware('admin');
-Route::get('/back/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit')->middleware('admin');
-Route::put('/back/users/{id}/update', [UserController::class, 'update'])->name('user.update')->middleware('admin');
-Route::post('/back/users/{id}/delete', [UserController::class, 'destroy'])->name('user.destroy')->middleware('admin');
+Route::get('/back/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/back/users/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/back/users/store', [UserController::class, 'store'])->name('user.store');
+Route::get('/back/users/{id}/read', [UserController::class, 'read'])->name('user.read');
+Route::get('/back/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::put('/back/users/{id}/update', [UserController::class, 'update'])->name('user.update');
+Route::post('/back/users/{id}/delete', [UserController::class, 'destroy'])->name('user.destroy');
 // Role
-Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index')->middleware('admin');
-Route::get('/back/roles/create', [RoleController::class, 'create'])->name('role.create')->middleware('admin');
-Route::post('/back/roles/store', [RoleController::class, 'store'])->name('role.store')->middleware('admin');
-Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read')->middleware('admin');
-Route::get('/back/roles/{id}/edit', [RoleController::class, 'edit'])->name('role.edit')->middleware('admin');
-Route::post('/back/roles/{id}/update', [RoleController::class, 'update'])->name('role.update')->middleware('admin');
-Route::post('/back/roles/{id}/delete', [RoleController::class, 'destroy'])->name('role.destroy')->middleware('admin');
+Route::get('/back/roles', [RoleController::class, 'index'])->name('role.index');
+Route::get('/back/roles/create', [RoleController::class, 'create'])->name('role.create');
+Route::post('/back/roles/store', [RoleController::class, 'store'])->name('role.store');
+Route::get('/back/roles/{id}/read', [RoleController::class, 'read'])->name('role.read');
+Route::get('/back/roles/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+Route::post('/back/roles/{id}/update', [RoleController::class, 'update'])->name('role.update');
+Route::post('/back/roles/{id}/delete', [RoleController::class, 'destroy'])->name('role.destroy');

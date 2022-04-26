@@ -35,12 +35,16 @@
 						<td>{{ $testimonial->quote }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
-                                <form action='{{ route('testimonial.destroy', $testimonial->id) }}' method='post'>
-                                    @csrf
-                                    @method('delete')
-                                    <button class='btn btn-danger mx-1' type=submit>Delete</button>
-                                </form>
-                                <a class='btn btn-primary mx-1' href='{{ route('testimonial.edit', $testimonial->id) }}' role='button'>Edit</a>
+                                @can('delete', $testimonial)
+                                    <form action='{{ route('testimonial.destroy', $testimonial->id) }}' method='post'>
+                                        @csrf
+                                        @method('delete')
+                                        <button class='btn btn-danger mx-1' type=submit>Delete</button>
+                                    </form>      
+                                @endcan
+                                @can('update', $testimonial)
+                                    <a class='btn btn-primary mx-1' href='{{ route('testimonial.edit', $testimonial->id) }}' role='button'>Edit</a>     
+                                @endcan
                                 <a class='btn btn-primary mx-1' href='{{ route('testimonial.show', $testimonial->id) }}' role='button'>Read</a>
                             </div>
                         </td>

@@ -14,7 +14,7 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
-                @if (Auth::user()->role_id == 1)
+                {{-- @if (Auth::user()->role_id == 1) --}}
                 <li class="sidebar-item {{ request()->routeIs("back.index") ? "active" : "" }}">
                     <a href="{{ route("back.index") }}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
@@ -33,10 +33,10 @@
                         <span>Roles</span>
                     </a>
                 </li>
-                @endif
+                {{-- @endif --}}
                 <li class="sidebar-title">Page</li>
 
-                @if (Auth::user()->role_id == 1)
+                {{-- @if (Auth::user()->role_id == 1) --}}
                     
                 
                 <li class="sidebar-item  {{-- has-sub --}} {{ request()->routeIs("titre.index") ? "active" : "" }}">
@@ -50,8 +50,8 @@
                         </li>
                     </ul> --}}
                 </li>
-                @endif
-                @if (Auth::user()->role_id == 1)
+                {{-- @endif --}}
+                {{-- @if (Auth::user()->role_id == 1) --}}
                     
                 
                 <li class="sidebar-item  has-sub {{ request()->routeIs("service.index")||request()->routeIs("service.create") ? "active" : "" }}">
@@ -60,40 +60,44 @@
                         <span>Service</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route("service.create") }}">Create Service</a>
-                        </li>
+                        @can('create', Service::class)
+                            <li class="submenu-item ">
+                                <a href="{{ route("service.create") }}">Create Service</a>
+                            </li>     
+                        @endcan
                         <li class="submenu-item ">
                             <a href="{{ route("service.index") }}">All Service</a>
                         </li>
                     </ul>
                 </li>
-                @endif
-                @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+                {{-- @endif --}}
+                {{-- @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2) --}}
                 <li class="sidebar-item  has-sub {{ request()->routeIs("testimonial.index")||request()->routeIs("testimonial.create") ? "active" : "" }}">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-stack"></i>
                         <span>Testimonial</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route("testimonial.create") }}">Create Testimonial</a>
-                        </li>
+                        @can('create', Testimonial::class)
+                            <li class="submenu-item ">
+                                <a href="{{ route("testimonial.create") }}">Create Testimonial</a>
+                            </li>
+                        @endcan
                         <li class="submenu-item ">
                             <a href="{{ route("testimonial.index") }}">All Testimonial</a>
                         </li>
                     </ul>
                 </li>
-                @endif
-                @if (Auth::user()->role_id == 1)
+                {{-- @endif --}}
+                {{-- @if (Auth::user()->role_id == 1) --}}
                 <li class="sidebar-item {{ request()->routeIs("banner.index") ? "active" : "" }}">
                     <a href="{{ route("banner.index") }}" class="sidebar-link">
                         <i class="bi bi-stack"></i>
                         <span>Banner</span>
                     </a>
                 </li>
-                @endif
-                @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+                {{-- @endif --}}
+                {{-- @if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2) --}}
                 <li class="sidebar-item {{ request()->routeIs("map.index") ? "active" : "" }}">
                     <a href="{{ route("map.index") }}" class="sidebar-link">
                         <i class="bi bi-stack"></i>
@@ -105,7 +109,7 @@
                         </li>
                     </ul> --}}
                 </li>
-                @endif
+                {{-- @endif --}}
                 <li class="sidebar-title">
                     <a href="{{ route("template") }}">Exit</a>
                 </li>

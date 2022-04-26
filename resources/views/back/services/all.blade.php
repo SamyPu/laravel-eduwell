@@ -35,12 +35,16 @@
 						<td>{{ $service->description }}</td>
                         <td> {{-- all_td_anchor --}}
                             <div class='d-flex'>
-                                <form action='{{ route('service.destroy', $service->id) }}' method='post'>
-                                    @csrf
-                                    @method('delete')
-                                    <button class='btn btn-danger mx-1' type=submit>Delete</button>
-                                </form>
-                                <a class='btn btn-primary mx-1' href='{{ route('service.edit', $service->id) }}' role='button'>Edit</a>
+                                @can('delete', $service)
+                                    <form action='{{ route('service.destroy', $service->id) }}' method='post'>
+                                        @csrf
+                                        @method('delete')
+                                        <button class='btn btn-danger mx-1' type=submit>Delete</button>
+                                    </form>     
+                                @endcan
+                                @can('update', $service)
+                                    <a class='btn btn-primary mx-1' href='{{ route('service.edit', $service->id) }}' role='button'>Edit</a>  
+                                @endcan
                                 <a class='btn btn-primary mx-1' href='{{ route('service.show', $service->id) }}' role='button'>Read</a>
                             </div>
                         </td>
