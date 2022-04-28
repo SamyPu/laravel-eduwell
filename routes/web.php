@@ -63,6 +63,8 @@ Route::get('/back/titres/{id}/edit', [TitreController::class, 'edit'])->name('ti
 Route::post('/back/titres/{id}/update', [TitreController::class, 'update'])->name('titre.update');
 
 Route::resource('/back/testimonial', TestimonialController::class);
+Route::post('/back/testimonial/{id}/publish', [TestimonialController::class, 'publish'])->name('testimonial.publish');
+Route::post('/back/testimonial/{id}/unpublish', [TestimonialController::class, 'unpublish'])->name('testimonial.unpublish');
 
 Route::resource('/back/service', ServiceController::class);
 

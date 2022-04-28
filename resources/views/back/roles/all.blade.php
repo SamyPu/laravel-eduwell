@@ -7,6 +7,11 @@
                 {{ session()->get('message') }}
             </div>
         @endif
+        @if (session()->has('refuse'))
+            <div class='alert alert-danger'>
+                {{ session()->get('refuse') }}
+            </div>
+        @endif
         @if ($errors->any())
             <div class='alert alert-danger'>
                 <ul>
@@ -37,7 +42,7 @@
                                     <button class=btn btn-danger type=submit>Delete</button>
                                 </form>
                                 <a class='btn btn-primary' href='{{ route('role.edit', $role->id) }}' role='button'>Edit</a>
-                                <a class='btn btn-primary' href='{{ route('role.read', $role->id) }}' role='button'>Read</a>
+                                <a class='btn btn-primary' href='{{ route('role.show', $role->id) }}' role='button'>Read</a>
                             </div>
                         </td>
                     </tr>

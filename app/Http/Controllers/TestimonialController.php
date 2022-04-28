@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestimonialController extends Controller
 {
@@ -25,8 +27,8 @@ class TestimonialController extends Controller
     }
     public function store(Request $request)
     {
-        $this->authorize('create', Testimonial::class);
-
+        // $this->authorize('create', Testimonial::class);
+        
         $testimonial = new Testimonial;
         $request->validate([
             'nom'=> 'required',
@@ -36,6 +38,7 @@ class TestimonialController extends Controller
         $testimonial->nom = $request->nom;
         $testimonial->poste = $request->poste;
         $testimonial->quote = $request->quote;
+        $testimonial->user_id = Auth::id();
         $testimonial->save(); // store_anchor
         return redirect()->route("testimonial.index")->with("message", "Successful storage !");
     }
@@ -74,5 +77,19 @@ class TestimonialController extends Controller
 
         $testimonial->delete();
         return redirect()->back()->with("message", "Successful delete !");
+    }
+    public function publish($id)
+    {
+        $testimonial = Testimonial::find($id);
+        $testimonial->status = 1;
+        $testimonial->save();
+        return redirect()->back()->with("message", "Successful publish !");
+    }
+    public function unpublish($id)
+    {
+        $testimonial = Testimonial::find($id);
+        $testimonial->status = 0;
+        $testimonial->save();
+        return redirect()->back()->with("message", "Successful unpublish !");
     }
 }

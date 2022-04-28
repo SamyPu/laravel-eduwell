@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
@@ -24,7 +25,11 @@ class RoleController extends Controller
     }
     public function store(Request $request)
     {
+        
         $role = new Role;
+        if(! Gate::allows('access-admin', $role)){
+            return redirect()->route('role.index')->with('refuse', 'You are not allowed to create a role');
+        }
         $request->validate([
          'role'=> 'required',
         ]); // store_validated_anchor;
@@ -32,7 +37,7 @@ class RoleController extends Controller
         $role->save(); // store_anchor
         return redirect()->route("role.index")->with('message', "Successful storage !");
     }
-    public function read($id)
+    public function show($id)
     {
         $role = Role::find($id);
         return view("/back/roles/read",compact("role"));
@@ -43,14 +48,20 @@ class RoleController extends Controller
         return view("/back/roles/edit",compact("role"));
     }
     public function update($id, Request $request)
-    {
+    {   
         $role = Role::find($id);
-        $request->validate([
+        if(! Gate::allows('access-admin', $role)){
+            return redirect()->route('role.index')->with('refuse', 'You are not allowed to edit this role');
+        }
+        else{
+            $request->validate([
          'role'=> 'required',
         ]); // update_validated_anchor;
         $role->role = $request->role;
         $role->save(); // update_anchor
         return redirect()->route("role.index")->with('message', "Successful update !");
+        }
+        
     }
     public function destroy($id)
     {

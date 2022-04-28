@@ -78,11 +78,11 @@
                         <span>Testimonial</span>
                     </a>
                     <ul class="submenu ">
-                        @can('create', Testimonial::class)
+                        {{-- @can('create', Testimonial::class) --}}
                             <li class="submenu-item ">
                                 <a href="{{ route("testimonial.create") }}">Create Testimonial</a>
                             </li>
-                        @endcan
+                        {{-- @endcan --}}
                         <li class="submenu-item ">
                             <a href="{{ route("testimonial.index") }}">All Testimonial</a>
                         </li>

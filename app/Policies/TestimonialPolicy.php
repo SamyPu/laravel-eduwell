@@ -41,7 +41,7 @@ class TestimonialPolicy
      */
     public function create(User $user)
     {
-        return in_array($user->role_id, [1,2,3,4]);
+        // return in_array($user->role_id, [1,2,3,4]);
     }
 
     /**
@@ -65,7 +65,7 @@ class TestimonialPolicy
      */
     public function delete(User $user, Testimonial $testimonial)
     {
-        if ($user->id == $testimonial->user_id) {
+        if ($user->id == $testimonial->user_id ||$user->role_id == 1) {
             return true;
         } else {
             return false;

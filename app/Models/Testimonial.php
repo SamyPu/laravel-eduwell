@@ -13,6 +13,7 @@ class Testimonial extends Model
 		'nom',
 		'poste',
 		'quote',
+		'status',
 	]; // model_anchor
 
 	protected $table = "testimonials";
